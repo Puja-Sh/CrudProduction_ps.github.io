@@ -2,7 +2,6 @@ const btn = document.getElementById('btn');
 
 
 let array1 = [];
-let array2 = [];
 
 for(let i=0 ; i < 10 ; i++){
     array1[i] = 0;
