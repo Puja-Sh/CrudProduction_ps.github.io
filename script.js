@@ -77,7 +77,7 @@ function init() {
         let y = (Math.random() * ((innerHeight - size *2) - (size * 2)) + size * 2)
         let directionX = (Math.random() * 2) - 1;
         let directionY = (Math.random() * 2) - 1;
-        let color = '#ffffff'
+        let color = '#404b69'
 
         particlesArray.push(new Particle(x,y, directionX, directionY, size, color));
     }
@@ -102,7 +102,7 @@ function connect() {
             + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y -  particlesArray[b].y));
             if(distance < (canvas.width/7) * (canvas.height/7)) {
                 opacityValue = 1 - (distance/20000);
-                ctx.strokeStyle = '#fff';
+                ctx.strokeStyle = '#404b69';
                 ctx.lineWidth = 0.1;
                 ctx.beginPath();
                 ctx.moveTo(particlesArray[a].x, particlesArray[a].y)
