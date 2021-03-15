@@ -563,7 +563,7 @@ footer .logo img {
 }
 footer .navbar-options a {
   color: var(--white);
-  margin: 0 0.3rem;
+  margin: 0 2rem;
 }
 .footer-wrap {
   display: flex;
@@ -687,5 +687,8 @@ footer .part-2 {
   .part-1 .logo {
     justify-content: flex-start;
     margin-bottom: 1rem;
+  }
+  footer .navbar-options a {
+    margin: 0 1rem;
   }
 }
