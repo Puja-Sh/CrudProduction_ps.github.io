@@ -5,6 +5,7 @@
 }
 html {
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 body {
   font-family: "Montserrat", sans-serif;
@@ -14,12 +15,14 @@ body {
   /* justify-content: center; */
   background-color: var(--primary-color);
   overflow-x: hidden;
+  /* scroll-behavior: smooth; */
+  cursor: url('/image/logo.png');
 }
 :root {
   --primary-color: #1f1d32;
   --secondary-color: #3ec9d6;
   --footer: #8c179d;
-  --white: #fff;
+  --white: #fffafa;
   --team-card: #13102c;
 }
 
@@ -50,17 +53,32 @@ p.section-title-background {
   margin-bottom: 6rem;
 }
 body::-webkit-scrollbar {
-  width: 12px; /* width of the entire scrollbar */
+  width: 12px;
 }
 
 body::-webkit-scrollbar-track {
-  background: orange; /* color of the tracking area */
+  background: var(--team-card); 
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: blue; /* color of the scroll thumb */
-  border-radius: 20px; /* roundness of the scroll thumb */
-  border: 3px solid orange; /* creates padding around scroll thumb */
+  background-color: var(--secondary-color); 
+  border-radius: 20px; 
+  /* border: 3px solid var(--footer); */
+}
+
+.footer-div-right i:hover {
+  color: var(--secondary-color);
+  animation: rotate-s-loader 2s linear infinite;
+  /* margin: 6rem auto; */
+}
+
+@keyframes rotate-s-loader {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 /* =============================
             Navbar
@@ -71,8 +89,8 @@ body::-webkit-scrollbar-thumb {
   align-items: center;
   margin: auto;
   height: 6rem;
-  background-color: #13102ca3;
-  z-index: 1;
+  background-color: #13102cc4;
+  z-index: 2;
   position: fixed;
 }
 .navbar-section div {
@@ -86,8 +104,8 @@ body::-webkit-scrollbar-thumb {
   width: 100vw;
 }
 .navbar-section img {
-  height: 6rem;
-  width: 6rem;
+  height: 5rem;
+  width: 5rem;
   margin-right: 2rem;
 }
 
@@ -103,7 +121,14 @@ body::-webkit-scrollbar-thumb {
   font-size: 1.5rem;
 }
 
-#navbar.scroll {
+.navbar-section li a:hover {
+  color: var(--secondary-color);
+  transition: all 0.5s ease-in-out;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--secondary-color);
+}
+
+.navbar-section.scroll {
   background-color: #3ec9d657;
   color: #eef;
   transition: all 0.5s ease-in-out;
@@ -213,6 +238,9 @@ body::-webkit-scrollbar-thumb {
   padding-left: 20px;
 }
 
+.logo a {
+  color: var(--white);
+}
 /* =============================
             Home
 ================================ */
@@ -222,6 +250,7 @@ div.home-image-div img {
   width: 100vw;
   clip-path: polygon(0% 0%, 100% 0%, 100% 73%, 0% 99%);
   object-fit: cover;
+  /* margin-top: 3rem; */
 }
 
 /* =============================
@@ -263,6 +292,9 @@ div.home-image-div img {
   font-size: 1.5rem;
   margin-top: 1rem;
 }
+.game-download{
+  cursor: url('../image/logo.png'),auto;
+}
 
 /* =============================
           About Section
@@ -270,11 +302,12 @@ div.home-image-div img {
 #about-section {
   display: flex;
   height: 100vh;
+  
 }
 .about-front {
   display: flex;
   justify-content: space-evenly;
-  margin-bottom: 7rem;
+  /* margin-bottom: 7rem; */
 }
 .about-front .image {
   /* height: 100vh; */
@@ -307,11 +340,13 @@ div.home-image-div img {
 
 .about-front .para .title {
   font-size: 3rem;
+  margin-bottom: 1rem;
 }
 
 .about-front .para p {
   font-size: 1.2rem;
   padding-left: 4rem;
+  margin-bottom: 1rem;
 }
 /* =============================
           Team Section
@@ -328,13 +363,14 @@ div.home-image-div img {
   width: 10rem;
   border-radius: 50%;
   box-shadow: 0 0 37px black;
+  z-index: 1;
+  object-fit: cover;
 }
 .member div {
   background-color: var(--team-card);
   padding: 7rem 4rem 1rem 4rem;
   top: -79px;
   position: relative;
-  z-index: -1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -355,11 +391,28 @@ div.home-image-div img {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
 }
+.member ul {
+  display: flex;
+  cursor: pointer;
+}
+
+.member ul li {
+  margin: 1rem 1rem 0 1rem;
+  font-size: 1.5rem;
+}
+.member ul li:hover {
+ transform: scale(1.2);
+ transition: all 0.5s ease-in-out;
+}
+.member ul li a {
+  color: var(--secondary-color);
+}
 #team-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 .team-title {
   font-size: 3rem;
@@ -396,8 +449,8 @@ div.home-image-div img {
   display: flex;
 }
 .contact-front .image img {
-  height: 31rem;
-  width: 31rem;
+  height: 28rem;
+  width: 28rem;
   border-radius: 50%;
 }
 .contact-front .image {
@@ -411,7 +464,7 @@ div.home-image-div img {
 .contact-front .blank-card {
   position: absolute;
   background-color: var(--secondary-color);
-  height: 78%;
+  height: 64%;
   width: 69%;
   z-index: -1;
   display: flex;
@@ -462,15 +515,16 @@ div.home-image-div img {
   border-bottom: 2px #fff solid;
   display: block;
   width: 100%;
-  padding: 15px 0;
+  padding: 0.5rem 0;
   font-size: 18px;
-  color: #fff;
+  color: var(--team-card);
 }
 
 .form-control input:focus,
 .form-control input:valid {
   outline: 0;
   border-bottom-color: lightblue;
+  background-color: transparent;
 }
 
 .form-control label {
@@ -523,10 +577,10 @@ div.home-image-div img {
         Footer Section
 ================================ */
 .footer {
-  height: 100vh;
+  height: 60vh;
   /* height: 40rem; */
   width: 100vw;
-  clip-path: polygon(0% 43%, 100% 0%, 100% 100%, 0% 99%);
+  clip-path: polygon(0% 25%, 100% 4%, 100% 100%, 0% 100%);
   object-fit: cover;
   background-color: #03001d;
   display: flex;
@@ -565,6 +619,13 @@ footer .navbar-options a {
   color: var(--white);
   margin: 0 2rem;
 }
+
+footer .navbar-options a:hover {
+  color: var(--secondary-color);
+  border-bottom: 1px solid var(--secondary-color);
+  padding-bottom: 0.2rem;
+  transition: all 0.3s ease-in;
+}
 .footer-wrap {
   display: flex;
   justify-content: space-between;
@@ -584,16 +645,29 @@ footer .navbar-options  li {
   display: flex;
   /* justify-content: center; */
   align-items: center;
-  margin-top: 15rem;
+  margin-top: 7rem;
 }
 footer .part-2 {
-  margin: 3rem 0;
+  margin: 1.5rem 0;
 }
 
+.part-2 p {
+  margin: 1rem 0;
+}
 
 @media (max-width: 768px) {
+  div.home-image-div img {
+    height: 50vh;
+    margin-top: 5rem;
+  }
+  #game-section {
+    height: 80vh;
+  }
   .navbar-section .navbar-options, .blank-card, .contact-front .image, .para .blank-card  {
     display: none;
+  }
+  .navbar-section {
+    height: 5rem;
   }
   .open-btn {
     display: block;
@@ -607,6 +681,9 @@ footer .part-2 {
   }
   #game-section div li {
     margin: 0 1rem 3rem 1rem;
+  }
+  #team-section {
+    height: 100%;
   }
   #team-section .team-title-back  {
     font-size: 2rem;
@@ -654,11 +731,12 @@ footer .part-2 {
   .member div {
     padding: 4rem 0rem 1rem 0rem;
     top: -42px;
-    width: 7rem;
+    width: 14rem;
     margin: 0 10px;
   }
   .member .name {
     font-size: 1rem;
+    text-align: center;
   } 
   .form-control{
     width: 100%;
@@ -680,6 +758,9 @@ footer .part-2 {
   }
   .navbar-options ul {
     flex-flow: row wrap;
+  }
+  .footer {
+    height: 86vh;
   }
   .footer .part-1 {
     display: block;
